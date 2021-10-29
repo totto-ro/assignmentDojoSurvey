@@ -16,7 +16,7 @@
 	            <div>
 	            	<h3><c:out value="${error}"></c:out></h3>
 	            </div>
-	            <form action="/create/survey" method="POST">
+	            <form action="/result" method="POST">
 	                <div class="inputLines">
 	                    <label for="name">
 	                        * Name:

@@ -27,7 +27,7 @@ public class MainController {
 		return "result.jsp";
 	}
 	
-	@RequestMapping( value = "/create/survey", method = RequestMethod.POST )
+	@RequestMapping( value = "/result", method = RequestMethod.POST )
 	public String getResults( @RequestParam( value = "name" ) String name,
 							  @RequestParam( value = "location" ) String location,
 							  @RequestParam( value = "language" ) String language,
@@ -39,8 +39,11 @@ public class MainController {
 			return "redirect:/";
 		}
 
-		Object results = new Survey(name, location, language, comments); 
-		model.addAttribute("results", results );
+		Survey surveyResults = new Survey(name, location, language, comments);  
+		System.out.println(surveyResults.getName());
+		System.out.println(surveyResults.getLocation());
+		System.out.println(surveyResults.getLanguage());
+		model.addAttribute("results", surveyResults );
 		
 //		resultsInfo.add( new Survey (name, location, language, comments) );
 		
@@ -49,7 +52,6 @@ public class MainController {
 		//resultsInfo.add(language);
 		//resultsInfo.add(comments);
 		
-		System.out.println( results );
 		//return "redirect:/result";
 		return "result.jsp";
 	}
